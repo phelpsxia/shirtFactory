@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1404.47">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">#title1{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>height:40px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>//margin: auto;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>//padding: 50px 50px 200px 100px;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#style1{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width:50%;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align:center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>//border: 1px solid red;</p>
+<p class="p1">}</p>
+<p class="p1">#plan1{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>//border: 1px solid red;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width:50%;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align: center;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#step1{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-style: italic;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position:relative;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>top:20px;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#first{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position:relative;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>top:40px;</p>
+<p class="p1">}</p>
+<p class="p1">.box1{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding-left: 30px;</p>
+<p class="p1">}</p>
+<p class="p1">.input{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border:1px solid white;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#efficiency1{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width:20px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-family: Arial, Helvetica, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 14px;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#efficiency2{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width:20px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-family: Arial, Helvetica, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 14px;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#efficiency3{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width:20px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-family: Arial, Helvetica, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 14px;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#efficiency4{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width:20px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-family: Arial, Helvetica, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 14px;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#step2{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-style: italic;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position:relative;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>top:50px;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#second{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position:relative;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>top:60px;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#title2{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>//border:1px solid red;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>//margin:10px,10px,10px,10px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width:50%;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>left: 715px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>top:0px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align:center;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#style2{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>//border:1px solid red;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>//margin:10px,10px,10px,10px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width:50%;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>left: 715px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>top:60px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align:center;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#plan2{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>//border:1px solid red;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>//margin:10px,10px,10px,10px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width:50%;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>left: 715px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>top:110px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align:center;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#step3{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>//border:1px solid red;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>//margin:10px,10px,10px,10px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width:50%;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>left: 740px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>top:180px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>//text-align:center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-style: italic;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#third{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width:50%;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>left: 740px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>top:240px;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#step4{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>left: 740px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>top:340px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-style: italic;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1">#forth{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>left: 740px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>top:390px;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#line{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position:absolute;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>left:710px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>top:150px;</p>
+<p class="p1">}</p>
+</body>
+</html>
