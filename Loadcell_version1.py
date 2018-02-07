@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 import time
 import sys
 import numpy as np
+import requests
 from flask import Flask, request
 from hx711 import HX711
 
@@ -111,12 +112,13 @@ def weight(id):
     hx[id].power_up()
     time.sleep(0.05)
     
-@app.route("/main/int:0", methods=['GET', 'POST'])    
+#@app.route("/main/<int:id>", methods=['GET', 'POST'])    
 def main(id):
     init(16,12,0)
     init(24,23,1)
     init(6,5,2)
     init(13,26,3)
+    start_time = time.time()
     while True:
     
         # These three lines are usefull to debug wether to use MSB or LSB in the reading formats
@@ -126,6 +128,7 @@ def main(id):
         #binary_string = hx.get_binary_string()
         #print binary_string + " " + np_arr8_string
         try:
+            
             if flag[id] == 1:
                 count[id] += 1
         
@@ -134,21 +137,26 @@ def main(id):
                 flag[id] = 0
             
             weight(id)
+            elapsed_time = time.time() - start_time
+            if elapsed_time >= 300:
+                effeciency = list(map(operator.sub, total, effeciency))
+                start_time = time.time()
+                
             id += 1
             if id == 4:
                 id = 0
-                r = jsonify({'effieciency': {
-                    'worker1':{'total': total[0], 'the amount in the basket': unitInBasket[0], 'effeciency': effeciency[0]},
-                    'worker2':{'total': total[1], 'the amount in the basket': unitInBasket[1], 'effeciency': effeciency[1]},
-                    'worker3':{'total': total[2], 'the amount in the basket': unitInBasket[2], 'effeciency': effeciency[2]},
-                    'worker4':{'total': total[3], 'the amount in the basket': unitInBasket[3], 'effeciency': effeciency[3]}}})
-                return r
+                r = requests.post('',json=({'effeciency': {
+                    'worker1':{'total': total[0], 'unitInBasket': unitInBasket[0], 'effeciency': effeciency[0]},
+                    'worker2':{'total': total[1], 'unitInBasket': unitInBasket[1], 'effeciency': effeciency[1]},
+                    'worker3':{'total': total[2], 'unitInBasket': unitInBasket[2], 'effeciency': effeciency[2]},
+                    'worker4':{'total': total[3], 'unitInBasket': unitInBasket[3], 'effeciency': effeciency[3]}}})
+                print r
             print "id:" , id
         except (KeyboardInterrupt, SystemExit):
             cleanAndExit()
         # Prints the weight. Comment if you're debbuging the MSB and LSB issue.
 
-app.run(host='0.0.0.0',port=5000)
+#app.run(host='0.0.0.0',port=5000)
 
     
     
