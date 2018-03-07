@@ -10,8 +10,6 @@ from flask import Flask, request
 from hx711 import HX711
 from gpiozero import Buzzer
 import pyrebase
-import Shirt01
-import Shirt02
 
 hx = ['' for i in range(4) ]
 unit_weight = [0 for i in range(4)]
@@ -25,6 +23,7 @@ real_weight = [0 for i in range(4) ]
 unitRefer = [0 for i in range(4) ]
 unitInBasket = [0 for i in range(4) ]
 weight_refer = [0 for i in range(4) ]
+n = 10
 #api = Shirt01.Ultimaker3("128.208.183.66", "test")
 #api.loadAuth("auth.data")
 #api.put("api/v1/printer/led", data={"brightness": 100.0, "saturation": 80.0, "hue":308.0})    
@@ -81,14 +80,21 @@ def weight(id):
         recent_data[id][0] = 0
 
     possible_real_weight[id] = most_common(recent_data[id])
-    num = recent_data[id].count(possible_real_weight[id])
+    n = recent_data[id].count(possible_real_weight[id])
     #print ('count:', num)
+    if flag[id] == 1:
+        weight_refer[id] = real_weight[id]
     
-    if num >= 5:
-        real_weight[id] = possible_real_weight[id]
-        weight_refer[id] = most_common(recent_data[id][5:10])
+    if n >= 5:
+        if real_weight[id] == possible_real_weight[id]:
+            flag[id] = 0
+        else:
+            real_weight[id] = possible_real_weight[id]
+            flag[id] = 1
+        
     else:
         real_weight[id] = 0
+        flag[id] = 0
         
     if most_common(recent_data[id]) == 0:
         empty = 1
@@ -118,7 +124,7 @@ def weight(id):
     hx[id].power_down()
     hx[id].power_up()
     time.sleep(0.01)
-    
+
 def response():
     start_point = time.time()  
     while True:
@@ -148,9 +154,8 @@ def main(id):
     db = firebase.database()
     effeciency = [0 for i in range(4) ]
     previous_total = [0 for i in range(4) ]
-    ready = 0
+    ready = 0 #signal for uploading
     start_time = time.time()
-    n = 0
     counter = 0
     sound = 1
     
@@ -163,13 +168,6 @@ def main(id):
         #binary_string = hx.get_binary_string()
         #print binary_string + " " + np_arr8_string
         try:
-            
-            if flag[id] == 1:
-                count[id] += 1
-        
-            if count[id] == 4:
-                count[id] = 0
-                flag[id] = 0
             
             weight(id)
             elapsed_time = time.time() - start_time
@@ -187,9 +185,6 @@ def main(id):
             id += 1
             if id == 4:
                 id = 0
-                if real_weight[id] > 0 and num <= 1 and sound == 1:
-                    response()
-                    sound = 0
                 print ("real weight:",real_weight, "\n refer weight:", weight_refer, "\n unit weight:", unit_weight)
                 print ("subtotal:",total)
                 print ("===============")
@@ -202,7 +197,7 @@ def main(id):
                     'worker3':{'total': total[1], 'unitInBasket': unitInBasket[1], 'effeciency': effeciency[1]},
                     'worker4':{'total': total[3], 'unitInBasket': unitInBasket[3], 'effeciency': effeciency[3]}}})
 
-                    db.set({'effeciency': {
+                    db.update({'effeciency': {
                     'worker1':{'total': total[0], 'unitInBasket': unitInBasket[0], 'effeciency': effeciency[0]},
                     'worker2':{'total': total[2], 'unitInBasket': unitInBasket[2], 'effeciency': effeciency[2]},
                     'worker3':{'total': total[1], 'unitInBasket': unitInBasket[1], 'effeciency': effeciency[1]},
@@ -211,10 +206,13 @@ def main(id):
                     print ("===============")
                     counter += 1
                     ready = 0
+            if n < 2 and sound == 1:
+                response()
+                sound = 0
                     #if counter > 2 and total[3] ==0:
                         #api.post("api/v1/print_job", files={"file": ("UM3E_shirt_test1.gcode", open("UM3E_shirt_test1.gcode", "rb"))})    
         
-            print ("id:" , id)
+            #print ("id:" , id)
         except (KeyboardInterrupt, SystemExit):
             cleanAndExit()
         # Prints the weight. Comment if you're debbuging the MSB and LSB issue.
